@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import LoadingBar from 'react-top-loading-bar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NavBar from "./components/navbar";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+export default class App extends Component {
+
+  state = {
+    progress: 0
+  }
+
+  pageSize = 15;
+
+  setProgress = (progress) => {
+    this.setState({ progress: progress })
+  }
+
+  render() {
+    return (
+      <>
+        <div style={{ background: "linear-gradient(89.7deg, rgb(22, 22, 5) 1.8%, rgb(12, 19, 50) 100%", overflow: "auto", height: "100%" }}>
+          <div style={{ display: "flex" }}> </div>
+          <Router>
+            <NavBar />
+            <LoadingBar
+              color='#7c8dd9'
+              height={4}
+              progress={this.state.progress} />
+
+            
+
+          </Router>
+        </div>
+      </>
+    );
+  }
 }
-
-export default App;
