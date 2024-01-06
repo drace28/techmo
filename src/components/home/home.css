@@ -1,0 +1,90 @@
+.home{
+    
+    background-color: #fff;
+
+
+}
+.banner img {
+    margin-top: 80px;
+    margin-left: 10px;
+    
+    height: 350px;
+    width: 1360px;
+    
+}
+
+.about-t {
+    color:blueviolet;
+}
+
+.about-p{
+    color: cadetblue;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.footer-column {
+    flex: 1;
+    margin-right: 20px; /* Adjust margin as needed */
+}
+#ad {
+    margin-top: 60px;
+}
+
+.footer-column img {
+    height: 200px;
+    margin-top: 60px;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .about {
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 550px 1fr;
+    gap: 1rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    font: 500 100%/1.5 system-ui;
+    animation: fadeIn 1s ease-in-out; /* Add the animation here */
+  }
+  
+  .about img {
+    
+    height: 300px;
+    width: 530px;
+  }
+  
+  .about p {
+    font-family: Neue Kabel Pro Book;
+    margin: 10px 0;
+  }
+  
+  @media (max-width: 650px) {
+    .about {
+      display: block;
+      font-size: 80%;
+    }
+    .about p {
+      position: relative;
+      margin: -3rem 0 2rem 1rem;
+      padding: 1rem;
+      background: rgba(white, 0.8);
+    }
+  }
+  
