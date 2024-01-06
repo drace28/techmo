@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Iframe from 'react-iframe';
 import logo from '../logo.png'
-import banner from './assessts/banner.jpg';
-import expertise from './assessts/expertise.jpg';
-import quality from './assessts/quality.jpg';
+import banner from './assests/banner.jpg';
+import expertise from './assests/expertise.jpg';
+import quality from './assests/quality.jpg';
 import './home.css';
 export class Home extends Component {
     render() {
