@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.css'
+import logo from './logo.png'
+import products from '../components/products/products'
 
 
 export class navbar extends Component {
@@ -11,37 +13,22 @@ export class navbar extends Component {
 
   render() {
     return (
-          <>  
-         
-          <div aria-hidden="true "></div>
-        <nav   className="navbar navbg fixed-top navbar-expand-lg  text-dark bg-dark navbar-dark" id=''>
-        <div className="container-fluid  my-2">
-          <img className = "techmo" src='C:\Coding\techmo\src\components\logo.png' />
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="items">
-              <li className="nav-item">
-                <Link className="list" aria-current="page" to="/register">Products</Link>
-              </li>
-              
-              <li className="nav-item">
-                <Link className="list" to="/business">Area of operations</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="list" to="/contact">Contact Us</Link>
-              </li>
-              
-            </ul>
-            
-            
-
+          <>
+          <div className="navbar">
+            <div className="logo">
+              <img src={logo} alt="logo" />
+            </div>
+            <div className="nav-links">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/products">Products</Link></li>
+                <li><Link to="/aboutus">About Us</Link></li>
+                <li><Link to="/contactus">Contact Us</Link></li>
+              </ul>
+            </div>
             
           </div>
-        </div>
-      </nav>
-      </>
+        </>
     )
   }
 }

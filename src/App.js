@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import LoadingBar from 'react-top-loading-bar'
 
 import NavBar from "./components/navbar";
+import Home from "./components/home/home";
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,6 +29,23 @@ export default class App extends Component {
           <div style={{ display: "flex" }}> </div>
           <Router>
             <NavBar />
+            <Switch>
+              {/* <Route path="/products">
+                <Products
+                  pageSize={this.pageSize}
+                  setProgress={this.setProgress}
+                />
+              </Route>
+              <Route path="/aboutus">
+                <AboutUs />
+              </Route>
+              <Route path="/contactus">
+                <ContactUs />
+              </Route> */}
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
             <LoadingBar
               color='#7c8dd9'
               height={4}
