@@ -4,6 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 import NavBar from "./components/navbar";
 import Home from "./components/home/home";
+import Contact from "./components/contact_us/contact";
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,10 +39,10 @@ export default class App extends Component {
               </Route>
               <Route path="/aboutus">
                 <AboutUs />
-              </Route>
-              <Route path="/contactus">
-                <ContactUs />
               </Route> */}
+              <Route path="/contactus">
+                <Contact />
+              </Route>
               <Route path="/">
                 <Home />
               </Route>
