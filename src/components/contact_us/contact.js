@@ -18,8 +18,34 @@ export class Contact extends Component {
         this.setState({ captcha: value });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+        const { name, email, phone, message, captcha } = this.state;
+
+        // Validate form fields (you may want to add more validation)
+        if (!name || !email || !phone || !message || !captcha) {
+            alert('Please fill in all fields and complete the captcha.');
+            return;
+        }
+        try {
+            const response = await fetch('http://localhost:3001/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message, captcha }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Email sent successfully!');
+            } else {
+                alert('Failed to send email. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error sending email:', error);
+        }
         
     }
 
