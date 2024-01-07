@@ -4,6 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 import NavBar from "./components/navbar";
 import Home from "./components/home/home";
+import Product from "./components/products/products";
 import Contact from "./components/contact_us/contact";
 import {
   BrowserRouter as Router,
@@ -26,18 +27,18 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <div style={{ background: "linear-gradient(89.7deg, rgb(22, 22, 5) 1.8%, rgb(12, 19, 50) 100%", overflow: "auto", height: "100%" }}>
+        <div>
           <div style={{ display: "flex" }}> </div>
           <Router>
             <NavBar />
             <Switch>
-              {/* <Route path="/products">
-                <Products
+              <Route path="/products">
+                <Product
                   pageSize={this.pageSize}
                   setProgress={this.setProgress}
                 />
               </Route>
-              <Route path="/aboutus">
+              {/* <Route path="/aboutus">
                 <AboutUs />
               </Route> */}
               <Route path="/contactus">
