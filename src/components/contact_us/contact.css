@@ -41,3 +41,16 @@
     border-radius: 5px;
     resize: none;
 }
+
+/* contact.css */
+.submitButton {
+    background-color: #4caf50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  /* Add more styles as needed */
+  
