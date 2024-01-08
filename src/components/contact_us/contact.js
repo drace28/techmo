@@ -1,69 +1,100 @@
 import React, { Component } from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
-import './contact.css'
+import ReCAPTCHA from 'react-google-recaptcha';
+import './contact.css';
+import { Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
+import emailjs from '@emailjs/browser';
 
-export class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { name: '', email: '', phone: '', message: '', captcha: '' };
+class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      error: false,
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      captcha: '',
+    };
+    this.formRef = React.createRef();
+  }
+
+  handleInputChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleCaptchaChange = (value) => {
+    this.setState({ captcha: value });
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const { name, email, phone, message, captcha } = this.state;
+
+    // Check if any of the fields are empty
+    const fields = ['name', 'email', 'phone', 'message', 'captcha'];
+    for (const field of fields) {
+      if (!this.state[field]) {
+        this.setState({ error: true, open: true });
+        return;
+      }
     }
 
-    handleInputChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+    try {
+      const result = await emailjs.sendForm('service_ox1e16t', 'template_y9upjy9', this.formRef.current, '9Yz0WO07qCbYKioV9');
+      console.log('Email sent successfully', result);
+
+      this.setState({ open: true, error: false, name: '', email: '', phone: '', message: '', captcha: '' });
+      this.formRef.current.reset();
+    } catch (error) {
+      console.log('Email send error:', error);
     }
+  };
 
-    handleCaptchaChange = (value) => {
-        this.setState({ captcha: value });
-    }
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
-    handleSubmit = async (event) => {
-        event.preventDefault();
-        const { name, email, phone, message, captcha } = this.state;
+  render() {
+    const { open, error } = this.state;
 
-        // Validate form fields (you may want to add more validation)
-        if (!name || !email || !phone || !message || !captcha) {
-            alert('Please fill in all fields and complete the captcha.');
-            return;
-        }
-        try {
-            const response = await fetch('http://localhost:3001/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, message, captcha }),
-            });
+    return (
+      <div className="contact">
+        <h1>Contact Us</h1>
+        <form onSubmit={this.handleSubmit} ref={this.formRef}>
+          <input type="text" name="name" placeholder="Your Name" onChange={this.handleInputChange} required />
+          <input type="email" name="email" placeholder="Your Email" onChange={this.handleInputChange} required />
+          <input type="tel" name="phone" placeholder="Your Phone Number" onChange={this.handleInputChange} required />
+          <textarea name="message" placeholder="Your Message" onChange={this.handleInputChange} required />
+          <ReCAPTCHA sitekey="6LfzgEgpAAAAAGE34GHY-SgsUu9Y1GvuAGZaPtIF" onChange={this.handleCaptchaChange} />
 
-            const data = await response.json();
-
-            if (data.success) {
-                alert('Email sent successfully!');
-            } else {
-                alert('Failed to send email. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error sending email:', error);
-        }
-        
-    }
-
-    render() {
-        return (
-            <div className='contact'>
-                <h1>Contact Us</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input type='text' name='name' placeholder='Your Name' onChange={this.handleInputChange} required />
-                    <input type='email' name='email' placeholder='Your Email' onChange={this.handleInputChange} required />
-                    <input type='tel' name='phone' placeholder='Your Phone Number' onChange={this.handleInputChange} required />
-                    <textarea name='message' placeholder='Your Message' onChange={this.handleInputChange} required />
-                    <ReCAPTCHA sitekey='6LfzgEgpAAAAAGE34GHY-SgsUu9Y1GvuAGZaPtIF' onChange={this.handleCaptchaChange} />
-                    <input type='submit' value='Submit' />
-                </form>
-            </div>
-        )
-    }
+          <button type="button" onClick={this.handleSubmit} className="submitButton">
+            Submit
+          </button>
+        </form>
+        {open && (
+          <Snackbar
+            open={open}
+            autoHideDuration={6000}
+            onClose={this.handleClose}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          >
+            <MuiAlert
+              elevation={6}
+              variant="filled"
+              onClose={this.handleClose}
+              severity={error ? 'error' : 'success'}
+            >
+              {error ? 'Please fill out all fields' : 'Email sent successfully!'}
+            </MuiAlert>
+          </Snackbar>
+        )}
+      </div>
+    );
+  }
 }
 
-export default Contact
+export default Contact;
