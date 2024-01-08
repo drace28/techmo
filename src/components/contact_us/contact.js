@@ -44,7 +44,7 @@ class Contact extends Component {
     }
 
     try {
-      const result = await emailjs.sendForm('service_ox1e16t', 'template_y9upjy9', this.formRef.current, '9Yz0WO07qCbYKioV9');
+      const result = await emailjs.sendForm('service_uwbmnm6', 'template_7tjjhcb', this.formRef.current, '9Yz0WO07qCbYKioV9');
       console.log('Email sent successfully', result);
 
       this.setState({ open: true, error: false, name: '', email: '', phone: '', message: '', captcha: '' });

@@ -4,7 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 import NavBar from "./components/navbar";
 import Home from "./components/home/home";
-import Product from "./components/products/products";
+import Slider from "./components/products/CardSlider";
 import Contact from "./components/contact_us/contact";
 import {
   BrowserRouter as Router,
@@ -33,7 +33,7 @@ export default class App extends Component {
             <NavBar />
             <Switch>
               <Route path="/products">
-                <Product
+                <Slider
                   pageSize={this.pageSize}
                   setProgress={this.setProgress}
                 />
