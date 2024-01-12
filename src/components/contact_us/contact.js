@@ -69,7 +69,7 @@ class Contact extends Component {
           <input type="email" name="email" placeholder="Your Email" onChange={this.handleInputChange} required />
           <input type="tel" name="phone" placeholder="Your Phone Number" onChange={this.handleInputChange} required />
           <textarea name="message" placeholder="Your Message" onChange={this.handleInputChange} required />
-          <ReCAPTCHA sitekey="6LfzgEgpAAAAAGE34GHY-SgsUu9Y1GvuAGZaPtIF" onChange={this.handleCaptchaChange} />
+          <ReCAPTCHA className='ReCAPTCHA' sitekey="6LfzgEgpAAAAAGE34GHY-SgsUu9Y1GvuAGZaPtIF" onChange={this.handleCaptchaChange} />
 
           <button type="button" onClick={this.handleSubmit} className="submitButton">
             Submit

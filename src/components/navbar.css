@@ -15,8 +15,9 @@
 }
 
 .navbar img {
-    height: 50px;
+    height: 60px;
     margin: 10px 10px 10px 10px; /* Adjusted margin */
+    margin-right: 800px;
 }
 
 .nav-links {
