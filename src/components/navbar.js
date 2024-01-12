@@ -1,17 +1,25 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './navbar.css';
+import logo from './logo.png';
 
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import './navbar.css'
-import logo from './logo.png'
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDropdownOpen: false,
+    };
+  }
 
-
-
-export class navbar extends Component {
-  
-
- 
+  toggleDropdown = () => {
+    this.setState((prevState) => ({
+      isDropdownOpen: !prevState.isDropdownOpen,
+    }));
+  };
 
   render() {
+    const { isDropdownOpen } = this.state;
+
     return (
       <>
         <div className="navbar">
@@ -29,7 +37,7 @@ export class navbar extends Component {
           <div className="dropdown-icon" onClick={this.toggleDropdown}>
             &#9776; {/* Unicode hamburger icon */}
           </div>
-          <div className="dropdown-content">
+          <div className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/products">Products</Link></li>
@@ -43,4 +51,4 @@ export class navbar extends Component {
   }
 }
 
-export default navbar
+export default Navbar;
