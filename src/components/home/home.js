@@ -13,7 +13,7 @@ export class Home extends Component {
         <>
             <div className="home">
             <div className="banner">
-                <img src={banner}></img>
+                <center><img src={banner}></img></center>
             </div>
             <section className='content'>
             <div className="home-text">
