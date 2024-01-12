@@ -13,23 +13,33 @@ export class navbar extends Component {
 
   render() {
     return (
-          <>
-          <div className="navbar">
-            <div className="logo">
-              <img src={logo} alt="logo" />
-            </div>
-            <div className="nav-links">
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li><Link to="/aboutus">About Us</Link></li>
-                <li><Link to="/contactus">Contact Us</Link></li>
-              </ul>
-            </div>
-            
+      <>
+        <div className="navbar">
+          <div className="logo">
+            <img src={logo} alt="logo" />
           </div>
-        </>
-    )
+          <div className="nav-links">
+            <ul className="nav-list">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/products">Products</Link></li>
+              <li><Link to="/aboutus">About Us</Link></li>
+              <li><Link to="/contactus">Contact Us</Link></li>
+            </ul>
+          </div>
+          <div className="dropdown-icon" onClick={this.toggleDropdown}>
+            &#9776; {/* Unicode hamburger icon */}
+          </div>
+          <div className="dropdown-content">
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/products">Products</Link></li>
+              <li><Link to="/aboutus">About Us</Link></li>
+              <li><Link to="/contactus">Contact Us</Link></li>
+            </ul>
+          </div>
+        </div>
+      </>
+    );
   }
 }
 

@@ -3,11 +3,12 @@ import hdpe_roll from './assests/hdpe_roll.jpeg';
 import pvc_pipe from './assests/pvc_pipe.jpeg';
 import cpvc_pipe from './assests/cpvc_pipe.jpeg';
 import './CardSlider.css';
-
+import Footer from '../footer/footer';
 class Slider extends Component {
 
   render() {
     return (
+      <>
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
@@ -53,6 +54,8 @@ class Slider extends Component {
           </div>
         </div>
       </div>
+      <Footer />
+      </>
     );
   }
 }

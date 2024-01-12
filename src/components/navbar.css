@@ -1,3 +1,4 @@
+/* Original styles for larger screens */
 .navbar {
     background-color: #f5f4f8;
     border-bottom: 1px solid #e6e6e6;
@@ -10,22 +11,22 @@
     top: 0;
     z-index: 1030;
     display: flex;
-    justify-content: space-between; /* Adjusted for space between logo and nav links */
+    justify-content: space-between;
     align-items: center;
 }
 
 .navbar img {
     height: 60px;
-    margin: 10px 10px 10px 10px; /* Adjusted margin */
+    margin: 10px 20px 10px 10px; /* Adjusted margin for larger screens */
     margin-right: 800px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: flex-end; /* Align to the right side */
+    justify-content: flex-end;
     align-items: center;
-    margin-right: 20px; /* Adjusted margin */
+    margin-right: 20px;
     height: 100%;
 }
 
@@ -49,3 +50,78 @@
 .nav-links a:hover {
     color: #007bff;
 }
+
+.dropdown-icon{
+    display: none;
+}
+
+.dropdown-content{
+    display: none;
+}
+@media(max-width: 1170px){
+    .navbar img{
+        margin-right: 600px;
+    }
+}
+
+@media(max-width: 970px){
+    .navbar img{
+        margin-right: 400px;
+    }
+}
+/* New styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar img {
+        margin-right: 10px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .dropdown-icon {
+        display: block;
+        cursor: pointer;
+        margin-right: 20px; /* Adjust margin for the dropdown icon */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f5f4f8;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        right: 0; /* Ensure the dropdown content is aligned to the right */
+    }
+
+    .dropdown-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .dropdown-content li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .dropdown-content a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .dropdown-content a:hover {
+        color: #007bff;
+    }
+
+    .dropdown-icon:focus + .dropdown-content,
+    .dropdown-icon:hover + .dropdown-content {
+        display: flex; /* Adjusted to make the dropdown content flex */
+        flex-direction: column; /* Align dropdown items in a column */
+        align-items: flex-end; /* Align dropdown items to the right */
+        position: absolute;
+        top: 60px;
+    }
+}
+

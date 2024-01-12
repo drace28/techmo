@@ -36,7 +36,7 @@
     padding: 20px;
     outline: none;
     border: none;
-    margin-left: 220px;
+    
     margin-bottom: 20px;
     border-radius: 5px;
     resize: none;
@@ -52,5 +52,26 @@
     cursor: pointer; /* Cursor on hover */
   }
   
-  /* Add more styles as needed */
-  
+@media(max-width:800px){
+    .contact{
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    .contact h1{
+        font-size: 30px;
+    }
+    .contact input{
+        width: 80%;
+    }
+    .contact textarea{
+        width: 80%;
+    }
+    .ReCAPTCHA{
+        width: 80%;
+    }
+    .submitButton{
+        width: 80%;
+    }
+}
+
+@media (max-width:)

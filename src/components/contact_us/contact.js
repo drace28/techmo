@@ -4,6 +4,7 @@ import './contact.css';
 import { Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import emailjs from '@emailjs/browser';
+import Footer from '../footer/footer';
 
 class Contact extends Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class Contact extends Component {
     const { open, error } = this.state;
 
     return (
+      <>
       <div className="contact">
         <h1>Contact Us</h1>
         <form onSubmit={this.handleSubmit} ref={this.formRef}>
@@ -69,8 +71,9 @@ class Contact extends Component {
           <input type="email" name="email" placeholder="Your Email" onChange={this.handleInputChange} required />
           <input type="tel" name="phone" placeholder="Your Phone Number" onChange={this.handleInputChange} required />
           <textarea name="message" placeholder="Your Message" onChange={this.handleInputChange} required />
+          <center>
           <ReCAPTCHA className='ReCAPTCHA' sitekey="6LfzgEgpAAAAAGE34GHY-SgsUu9Y1GvuAGZaPtIF" onChange={this.handleCaptchaChange} />
-
+          </center>
           <button type="button" onClick={this.handleSubmit} className="submitButton">
             Submit
           </button>
@@ -93,6 +96,8 @@ class Contact extends Component {
           </Snackbar>
         )}
       </div>
+      <Footer/>
+      </>
     );
   }
 }
