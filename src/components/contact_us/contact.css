@@ -1,34 +1,98 @@
 .contact{
-    background-color: #172dd1;
     padding: 50px 0;
     text-align: center;
     margin-top: 50px;
-    margin-right: 100px;
-    margin-left: 100px;
+    /* Grid background pattern */
+    background-image: 
+        linear-gradient(rgba(200, 200, 200, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 200, 200, 0.2) 1px, transparent 1px);
+    background-size: 25px 25px;
+    background-color: #f8f9fa;
+    position: relative;
 }
+
+/* Add a subtle overlay to enhance form visibility */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 0;
+}
+
+.contact-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    z-index: 1;
+}
+
+.contact .form{
+    width: 60%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact .details{
+    width: 40%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 .contact h1{
-    color: #fff;
+    color: #000000;
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
 }
+
 .contact input{
     width: 60%;
     padding: 20px;
     outline: none;
-    border: none;
+    border: 1px solid #000000;
     margin-bottom: 20px;
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.contact input:focus {
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+    transform: translateY(-2px);
 }
 
 .contact textarea{
     width: 60%;
     padding: 20px;
     outline: none;
-    border: none;
+    border: 1px solid #000000;
     margin-bottom: 20px;
     border-radius: 5px;
     resize: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.contact textarea:focus {
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+    transform: translateY(-2px);
 }
 
 .ReCAPTCHA{
@@ -36,10 +100,11 @@
     padding: 20px;
     outline: none;
     border: none;
-    
     margin-bottom: 20px;
     border-radius: 5px;
     resize: none;
+    position: relative;
+    z-index: 1;
 }
 
 /* contact.css */
@@ -50,7 +115,17 @@
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Cursor on hover */
-  }
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
   
 @media(max-width:800px){
     .contact{
@@ -72,6 +147,26 @@
     .submitButton{
         width: 80%;
     }
+    
+    .contact-form {
+        flex-direction: column;
+    }
+    
+    .contact .form,
+    .contact .details {
+        width: 90%;
+        margin-bottom: 20px;
+    }
 }
 
-@media (max-width:)
+@media (max-width: 576px) {
+    .contact {
+        margin-right: 20px;
+        margin-left: 20px;
+        background-size: 20px 20px; /* Smaller grid for mobile */
+    }
+    
+    .contact h1 {
+        font-size: 24px;
+    }
+}

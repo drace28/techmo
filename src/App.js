@@ -4,7 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 import NavBar from "./components/navbar";
 import Home from "./components/home/home";
-import Slider from "./components/products/CardSlider.js";
+import Slider from "./components/products/Products.js";
 import Contact from "./components/contact_us/contact";
 import {
   BrowserRouter as Router,

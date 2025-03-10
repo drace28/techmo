@@ -66,6 +66,8 @@ class Contact extends Component {
       <>
       <div className="contact">
         <h1>Contact Us</h1>
+        <p>Got any questions about our products or ranges? We're here to help!</p>
+        <div className='contact-form'>
         <form onSubmit={this.handleSubmit} ref={this.formRef}>
           <input type="text" name="name" placeholder="Your Name" onChange={this.handleInputChange} required />
           <input type="email" name="email" placeholder="Your Email" onChange={this.handleInputChange} required />
@@ -78,6 +80,14 @@ class Contact extends Component {
             Submit
           </button>
         </form>
+        <div className='details'>
+          <h2>Contact Details</h2>
+          <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1234567890</a></p>
+          <p>Address: 123 Main St, Anytown, USA</p>
+          <p>Hours: Mon-Fri: 9:00 AM - 5:00 PM</p>
+        </div>
+        </div>
         {open && (
           <Snackbar
             open={open}
